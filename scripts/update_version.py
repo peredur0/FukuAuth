@@ -12,7 +12,6 @@ NO UPDATE: build, chore, docs, refactor, test
 """
 
 import re
-import sys
 import pathlib
 import logging
 import subprocess
@@ -101,8 +100,6 @@ def main() -> None:
         )
     else:
         logger.info("Version not updated - %s", current_version)
-
-    sys.exit(0)
 
 
 if __name__ == "__main__":
