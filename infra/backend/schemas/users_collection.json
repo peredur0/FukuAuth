@@ -1,0 +1,32 @@
+{
+    "name": "users",
+    "indexes": {
+        "login": {"unique": true}
+    },
+    "$jsonSchema": {
+        "bsonType": "object",
+        "required": ["login", "password"],
+        "properties": {
+            "email": {
+                "bsonType": "string",
+                "description": "user's email address"
+            },
+            "login": {
+                "bsonType": "string",
+                "description": "Unique user login"
+            },
+            "password": {
+                "bsonType": "string",
+                "description": "User password"
+            },
+            "role": {
+                "enum": ["level_1", "level_2", "level_3"],
+                "description": "User's role on the platform"
+            },
+            "created_at": {
+                "bsonType": "date",
+                "description": "User creation datetime UTC"
+            }
+        }
+    }
+}
