@@ -1,3 +1,4 @@
 bcrypt
 pre-commit
+pymongo
 pytest
