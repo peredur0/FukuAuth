@@ -4,4 +4,4 @@
 **/__pycache__
 
 infra/database/mongo/scripts/*/createUser.js
-infra/database/mongo/db
+infra/database/mongo/db*

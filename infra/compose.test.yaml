@@ -2,7 +2,7 @@
 # Using Mongo as main database
 ---
 services:
-  mongo:
+  mongo_test:
     image: mongo:8.0
     container_name: test_fukuauth_mongo
     command:
@@ -10,14 +10,14 @@ services:
     ports:
       - "27018:27017"
     volumes:
-      - ./database/mongo/db:/data/db
+      - ./database/mongo/db_test:/data/db
       - ./database/mongo/scripts/test/createDB.js:/docker-entrypoint-initdb.d/createDB.js
       - ./database/mongo/scripts/test/createUser.js:/docker-entrypoint-initdb.d/createUser.js
     environment:
       MONGO_INITDB_ROOT_USERNAME: ${MONGO_ADMIN:-admin}
       MONGO_INITDB_ROOT_PASSWORD: ${MONGO_PASSW:-admin}
     networks:
-      - fuku_network
+      - test_fuku_network
 
 networks:
   test_fuku_network:
