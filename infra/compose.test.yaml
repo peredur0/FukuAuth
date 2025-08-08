@@ -1,18 +1,18 @@
-# Initial version of infra for FukuAuth
+# TEST version of infra for FukuAuth
 # Using Mongo as main database
 ---
 services:
   mongo:
     image: mongo:8.0
-    container_name: fukuauth_mongo
+    container_name: test_fukuauth_mongo
     command:
       - "--auth"
     ports:
-      - "27017:27017"
+      - "27018:27017"
     volumes:
       - ./database/mongo/db:/data/db
-      - ./database/mongo/scripts/prod/createDB.js:/docker-entrypoint-initdb.d/createDB.js
-      - ./database/mongo/scripts/prod/createUser.js:/docker-entrypoint-initdb.d/createUser.js
+      - ./database/mongo/scripts/test/createDB.js:/docker-entrypoint-initdb.d/createDB.js
+      - ./database/mongo/scripts/test/createUser.js:/docker-entrypoint-initdb.d/createUser.js
     environment:
       MONGO_INITDB_ROOT_USERNAME: ${MONGO_ADMIN:-admin}
       MONGO_INITDB_ROOT_PASSWORD: ${MONGO_PASSW:-admin}
@@ -20,6 +20,6 @@ services:
       - fuku_network
 
 networks:
-  fuku_network:
-    name: fuku_network
+  test_fuku_network:
+    name: test_fuku_network
     driver: bridge

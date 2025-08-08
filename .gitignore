@@ -3,5 +3,5 @@
 .pytest_cache
 **/__pycache__
 
-infra/database/mongo/scripts/createUser.js
+infra/database/mongo/scripts/*/createUser.js
 infra/database/mongo/db
